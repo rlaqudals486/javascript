@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>css 5-5</title>
+    <style>
+        #div1 span { transition: font-size 5s; }
+        #div1 span:hover { font-size: 500%; }
+        
+        /* 
+        transition : 주어진 시간동안 간단한 애니메이션 효과를 출력하는 속성, 아래의 속성을 한번에 입력할 수 있는 속성
+            여러가지 CSS 속성을 한번에 입력하여 애니메이션 효과를 줄 수 있음
+        transition-delay : 애니메이션 동작 시 딜레이 시간은 설정하는 속성
+        transition-duration : 애니메이션 총 동작 시간을 설정하는 속성
+        transision-property : 애니메이션 효과가 적용되는 CSS 속성명 설정
+        transision-timing-function : 애니메이션 동작 속도 곡선 설정속성
+        animation-timing-function : 
+        */
+
+        #div2 .tr2 {
+            width: 100px;
+            height: 100px;
+            background: red;
+            transition: width 2s, height 4s;
+        }
+
+        #div2 .tr2:hover {
+            width: 300px;
+            height: 300px;
+        }
+
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+        }
+
+        #div3 div { transition: width 3s; }
+        #div3 div:hover { width: 400px; }
+
+        #div3 .linear { transition-timing-function: linear; }
+        #div3 .ease { transition-timing-function: ease; }
+        #div3 .ease-in { transition-timing-function: ease-in; }
+        #div3 .ease-out { transition-timing-function: ease-out; }
+        #div3 .ease-in-out { transition-timing-function: ease-in-out; }
+
+        /* transition-delay 사용 */
+        #div4 .box {
+            transition: width 3s;
+            transition-delay: 1s;
+        }
+
+        #div4 .box:hover { width: 300px; }
+
+        /* transition-property 사용 */
+        #div5 .box {
+            transition-property: width;
+            transition-duration: 2s;
+            transition-timing-function: linear;
+            transition-delay: 1s;
+        }
+
+        #div5 .box:hover { width: 300px; }
+    </style>
+</head>
+<body>
+    <div id="div1">
+        <h3>transition 사용하기</h3>
+        <p><span>집에가고싶어유ㅠㅠㅠㅠ</span>글자에 마우스 ㄱ</p>
+    </div>
+
+    <br><hr><br>
+
+    <div id="div2">
+        <h3>transition 사용하기 2</h3>
+        <div class="tr2"></div>
+    </div>
+
+    <br><hr><br>
+
+    <div id="div3">
+        <h3>transtion-timing-function
+            <div class="box linear">linear</div>
+            <div class="box ease">ease</div>
+            <div class="box ease-in">ease-in</div>
+            <div class="box ease-out">ease-out</div>
+            <div class="box ease-in-out">ease-in-out</div>
+        </h3>
+    </div>
+
+    <br><hr><br>
+
+    <div id="div4">
+        <h3>transition-delay</h3>
+        <div class="box"></div>
+    </div>
+
+    <br><hr><br>
+
+    <div id="div5">
+        <h3>transition-property</h3>
+        <div class="box"></div>
+    </div>
+</body>
+</html>

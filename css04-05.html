@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>css 4-5</title>
+    <style>
+        /* box-sizing : width, height 를 설정할 때 그 기준을 border 로 하는지, content 영역으로 하는지 설정하는 속성 */
+        * {
+            box-sizing: border-box;
+        }
+
+        .header,
+        .footer {
+            background-color: gray;
+            color: white;
+            padding: 15px;
+        }
+
+        .column {
+            float: left;
+            padding: 15px;
+        }
+
+        .main::after {
+            content: "";
+            clear: both;
+            display: table;
+        }
+
+        .sidebar {
+            width: 25%;
+        }
+
+        .content {
+            width: 75%;
+        }
+
+        .sidebar ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .sidebar li {
+            padding: 8px;
+            margin-bottom: 8px;
+            background-color: #33b5e5;
+            color: #FFFFFF;
+        }
+
+        .sidebar li:hover {
+            background-color: skyblue;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <h1>정신나갈것같은 각종 짤방 대 방출소</h1>
+    </div>
+    <div class="main">
+        <div class="column sidebar">
+            <ul>
+                <li>홈</li>
+                <li>공지사항</li>
+                <li>순한맛 게시판</li>
+                <li>FQA</li>
+            </ul>
+        </div>
+        <div class="column content">
+            <h1>펀쿨섹</h1>
+            <p>환경 정책에 대한 대책을 들려주십시오. 그것을 묻는것은 섹시하지 못한 것 같습니다. 항상 정책은 펀하고 쿨하고 섹시하게 진행되어야 합니다.</p>
+        </div>
+    </div>
+    <div class="footer">
+        <p>Footer</p>
+    </div>
+</body>
+
+</html>

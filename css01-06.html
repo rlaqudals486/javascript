@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>css 1-6(class 선택자)</title>
+    <style>
+        p { font-size: 24px;}
+
+        /* css 내에서 .cls1 같이 .이 붙어있는 경우는 class #이 붙어있는 경우는 id */
+        
+        .cls1 {
+            font-size: 32px;
+            color: lightblue;
+        }
+
+        .cls2 {
+            font-family: '궁서체';
+            color: hotpink;
+        }
+
+        #idp {
+            color: palegreen;
+            font-weight: bold;
+            font-size: large;
+            font-family: sans-serif;
+        }
+
+        /* 전체 선택자 */
+        /* 현재 페이지에 존재하는 모든 html 태그를 선택 */
+        /* CSS 파일 및 style 태그에서 가장 먼저 사용하여 페이지의 전체 세팅을 하는 경우에 사용함 */
+        * {
+            /* 태그의 공간 설정 */
+            padding: 0px;
+            margin: 0px;
+            background-color: darkgray;
+        }
+        /* 전체 설정 시 html, body 태그에 설정하는 것을 추천함 */
+        html, body {
+            padding: 0px;
+            margin: 0px;
+        }
+    </style>
+</head>
+<body>
+    <h3>class 선택자</h3>
+    <!-- 클래스 선택자는 . 기호 사용 -->
+    <!-- html 태그의 클래스 속성값은 중복해서 사용할 수 있음 -->
+    <!-- html 태그의 클래스 속성값은 태그의 종류에 상관없이 사용할 수 있음 -->
+    <!-- class 속성은 중복가능, 태그 종류에 구분 없음. -->
+    <p>클래스가 없는 p 태그</p>
+    <p class="cls1">클래스가 cls1인 p 태그</p>
+    <p class="cls2">클래스가 cls2인 p 태그</p>
+    <p id="idp" class="idp">id가 idp인 p 태그</p>
+    <h4 class="cls1">클래스가 cls1인 h4 태그</h4>
+    <h4 id="idh4">id가 idh4인 h4 태그</h4>
+    <h5 class="cls2">클래스가 cls2인 h5 태그</h5>
+    <ul>
+        <li class="cls1">클래스가 cls1인 li 태그</li>
+        <li class="cls1">클래스가 cls1인 li 태그</li>
+        <li class="cls1">클래스가 cls1인 li 태그</li>
+    </ul>
+</body>
+</html>

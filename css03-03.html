@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>css 3-3</title>
+    <style>
+        /* background : html 태그의 배경에 관련된 속성,  color, image, repeat, position, attachment, size */
+        /* background-color : 배경색 설정, 색상명, hex, rgb() 을 사용할 수 있음, 
+            투명도 설정이 가능(opacity, rgba() 사용) - opacity 속성 사용 시 해당 태그에 포함된 자손태그들도 투명화됨*/
+            #bg-color > h1 { background : green; }
+            #bg-color > .bg { background : lightskyblue; }
+            #bg-color p { background : yellow; }
+
+            .box > .first { background-color: green; opacity: 0.1; }
+            .box > .second { background-color: green; opacity: 0.3; }
+            .box > .third { background-color: green; opacity: 0.6; }
+
+            .box2 > .first { background-color: rgba(0, 128, 0, 0.1); }
+            .box2 > .second { background-color: rgba(0, 128, 0, 0.3); }
+            .box2 > .third { background-color: rgba(0, 128, 0, 0.6); }
+
+            /* 
+            background-image : 해당 태그의 배경에 이미지를 사용하는 속성, background-repeat, positionm attachment 를 통해서 이미지 출력 방식을 변경할 수 있음
+                -url() : 각종 미디어의 경로를 입력하는 속성, 상대/절대경로 사용 가능, 외부 서버의 파일도 로딩가능
+
+            background-repeat : background-image 속성 사용 시 이미지를 가로/세로로 반복할 것인지를 설정하는 속성
+                - repeat-x, repeat-y, none
+            */
+            .bg-img { 
+                width: 500px;
+                height: 300px;
+                background-image: url("./makao.jpg");}
+
+            .bg-repeat > div { 
+                border: 1px solid black;
+                width: 700px;
+                height: 700px;
+                background-image: url("./골든파이리.jpg");
+            }
+
+            .bg-rex { background-repeat: repeat-x; }
+            .bg-rey { background-repeat: repeat-y; }
+            .bg-no { background-repeat: no-repeat; }
+
+            /* background-position : background-image 속성 사용 시 이미지를 화면에 출력할 위치를 설정하는 속성
+                속성값을 2개 입력(가로의 위치, 세로의 위치)
+                지정된 위치값(left, right, center, top, buttom), %(기본값은 0%, 0%)으로 속성값 입력
+            */
+            /* % 사용 시 0%는 왼쪽/상단, 100% 오른쪽/하단 */
+
+            #bg-position > div {
+                width: 500px;
+                height: 500px;
+                border: 1px solid black;
+                background-image: url("./알식이.jpg");
+                background-repeat: no-repeat;
+            }
+            
+            .bg-pos1 {
+                background-position: center center;
+            }
+
+            .bg-pos2 {
+                background-position: 50% 50%;
+            }
+
+             /* 
+            backgruond-size : background-image 사용 시 배경 이미지를 어떠한 방식으로 출력할 것인지 설정하는 속성
+            auto(원본 이미지 크기), 길이(px, %), cover(이미지를 확대, 가로 크기에 맞게 확대), contain(화면 크기에 맞게 확대축소) 길이 입력 시 가로값 세로값 2번 입력
+            */
+
+            #bg-size > div {
+                width: 350px;
+                height: 350px;
+                border: 1px solid black;
+                background-image: url("./말박이.jpg");
+                background-repeat: no-repeat;
+            }
+
+            .bg-sz { background-size: auto; }
+            .bg-cover { background-size: cover; }
+            .bg-contain { background-size: contain; }
+
+            /* 
+            background-attachment : 배경 이미지를 마우스 스크롤 시 화면에 고정여부를 설정하는 속성
+            fix (화면에 고정), scroll (스크롤에 따라 배경이 움직임)
+            */
+
+            body {
+                background-image: url("./멍파치.png");
+                background-repeat: no-repeat;
+                background-position: right center;
+                background-attachment: scroll;
+                background-size: auto;
+            }
+
+            /* background : background-color, background-image, attchment, position, repeear의 속성을 한번에 설정하는 속성
+                background-color > background-image > background-repeat > background-attachment >  background-position 순서로 입력
+            */
+
+            #bgbg > div{
+                width: 500px;
+                height: 500px;
+                border: 1px solid black;
+            }
+
+            .bg1 {
+                background-color: darkgray;
+                background-image: url("./zammanbo.png");
+                background-repeat: repeat-x;
+                background-position: center;
+            }
+
+            .bg2 { background: darkgray url("./zammanbo.png") repeat-x center center;}
+
+            
+            
+    </style>
+</head>
+<body>
+    <h3>background-color</h3>
+    <div id="bg-color">
+        <h1>CSS background-color 사용하기</h1>
+        <div class="bg">
+            div 태그에 background-color 사용
+            <p>p 태그에 background-color 사용</p>
+            div 태그에 background-color 사용
+    </div>
+
+    <hr>
+
+    <div class="box">
+        <div class="first">opacity 0.1</div>
+        <div class="second">opacity 0.3</div>
+        <div class="third">opactiy 0.6</div>
+        <div>opacity 1.0(기본)</div>
+    </div>
+
+    <hr>
+
+    <div class="box2">
+        <div class="first">rgba 0.1</div>
+        <div class="second">rgba 0.3</div>
+        <div class="third">rgba 0.6</div>
+        <div>rgba 1.0(기본)</div>
+    </div>
+
+    <br><hr><br>
+
+    <h3>background-image 사용하기</h3>
+    <div id="bg-image">
+        <div class="bg-img">
+            <p>background-image를 사용하여 배경 이미지 사용</p>
+        </div>
+
+    <br><hr><br>
+
+    <div class="bg-repeat">
+        <div class="bg-re">a</div>
+        <div class="bg-rex">b</div>
+        <div class="bg-rey">c</div>
+        <div class="bg-no">d</div>
+    </div>
+
+    <hr>
+
+    <h3>background-position</h3>
+    <div id="bg-position">
+        <div class="bg-pos1">방향지정</div>
+        <div class="bg-pos2">%로 지정</div> 
+    </div>
+
+    <hr>
+    <h3>backgruond-size</h3>
+    <div id="bg-size">
+        <div class="bg-sz">사이즈 직접 입력</div>
+        <div class="bg-cover">cover 사용</div>
+        <div class="bg-contain">contain 사용</div>
+    </div>
+
+    <hr>
+
+    <h3>background</h3>
+    <div id="bgbg">
+        <div class="bg1"></div>
+        <div class="bg2"></div>
+    </div>
+</body>
+</html>

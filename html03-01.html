@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UFT-8">
+        <title>html 3일차 1번 파일</title>
+    </head>
+    <body>
+        <h3>video 태그를 이용한 미디어 플레이어</h3>
+        
+        <!-- 글자를 중앙 정렬 -->
+        <div style="text-align: center;">
+            <!-- 버튼 클릭시 자바스크립트 함수 playPause() 를 실행 -->
+            <button onclick="playPause()">Play/Pause</button>
+            <!-- 버튼 클릭 시 자바스크립트 함수 big() 을 실행 -->
+            <button onclick="big()">Big</button>
+            <!-- 버튼 클릭 시 자바스크립트 함수 small() 을 실행 -->
+            <button onclick="small()">Small</button>
+            <!-- 버튼 클릭 시 자바스크립트 함수 normal() 을 실행 -->
+            <button onclick="normal()">Nomarl</button>
+            <br><br>
+            <!-- video 태그에 id를 video1 이라고 설정 -->
+            <!-- 기본 너비를 420px 로 설정 -->
+            <video id="video1" width="420">
+                <!-- 재생 미디어를 mov_bbb.webm으로 설정 -->
+                <source src="mov_bbb.webm" type="video/webm">
+                <!-- 위의 미디어가 정상 동작하지 않을 경우 아래의 미디어 파일을 재생 -->
+                <source src="mov_bbb.mp4" type="video/mp4">
+                <source src="mov_bbb.ogg" type="video/ogg">
+            </video>
+        </div>
+
+        <h3>audio 태그 사용하기</h3>
+        <audio src="kalimba.mp3" autoplay controls></audio>
+        
+        <!-- 문제 1) audio 태그와 source 태그를 사용하여 하나의 미디어 파일이 오류가 발생하여 재생되지 않을 경우를 대비하는 형태의 audio 태그를 생성하세요 -->
+        
+        <!-- autoplay = 즉시 재생 / controls = 재생, 재생 시간, 중단, 음소거 등의 버튼 출력 / loop = 반복 재생 -->
+
+        <audio autoplay controls loop>
+        <source src="Kalimba.mp3" type="audio/mp3">
+        <source src="Kalimba.wav" type="audio/wav">
+        <source src="Kalimba.ogg" type="audio/ogg">
+        </audio> 
+
+        <br><hr><br>
+
+        <h3>iframe 태그를 사용하여 youtube 영상 재생하기</h3>
+        <h4>자동 재생 안됨</h4>
+
+        <iframe src="https://www.youtube.com/embed/tgbNymZ7vqY" frameborder="0" width="420" height="350"></iframe>
+
+        <!-- 유튜브 영상 자동 재생 -->
+        <!-- 2018년 이후 구글 크롬에서 영상의 자동 재생 기능을 제외했음 -->
+        <!-- 음소거된 영상의 경우 자동 재생이 가능함 -->
+        <!-- sec 속성 뒤에 mute=1, autoplay=1를 추가 시 자동 재생이 가능함 -->
+        <br>
+        <h4>자동 재생 기능</h4>
+        
+        <iframe src="https://www.youtube.com/embed/tgbNymZ7vqY?mute=1&autoplay=1" frameborder="0" width="420" height="350"></iframe>
+
+        <!-- 컨트롤 옵션 -->
+        <!-- controls=0 : 플레이어에 컨트롤이 표시되지 않음 -->
+        <!-- controls=1 : 컨트롤이 표시됨 (기본) -->
+        <!-- loop=0 : 한번 재생 (기본값) -->
+        <!-- loop=1 : 반복 재생 -->
+        <!-- loop 사용 시 playlist 을 추가하고 해당 영상의 주소를 추가 입력함 -->
+        <!-- 영상의 주소는 embed 뒤의 주소임 -->
+
+        <!-- 유튜브 영상을 링크하여 사용 시 브라우저의 주소창에 있는 주소를 사용하면 재생이 불가함 -->
+        <!-- 유튜브의 공유 버튼을 사용하여 재생 주소를 받아야함 -->
+        <br><br>
+        <iframe src="https://www.youtube.com/embed/Ia10-qSqHUI?mute=1&autoplay=1&controls=1&loop=1&playlist=Ia10-qSqHUI" frameborder="0" width="420" height="350"></iframe>
+
+        <!-- 문제2 ) 자신이 원하는 유튜브 영상을 iframe 태그를 사용해서 화면에 출력하세요 -->
+        <!-- 자동재생, 루프 사용 -->
+        <iframe src="https://www.youtube.com/embed/sBAU5Irtom8?mute=1&autoplay=1&loop=1&playlist=sBAU5Irtom8" frameborder="0" width="420" height="350"></iframe>
+
+        <!-- 유튜브 API 사이트 주소 -->
+        <!-- https://developers.google.com/youtube/iframe_api_reference?hl=ko -->
+
+        <!-- 자바스크립트 선언 -->
+        <script>
+            // myVideo라는 메모리 저장소에 id값이 "video1"인 html 태그를 찾아서 저장함
+            var myVideo = document.getElementById("video1");
+            
+            // 실행될 자바스크립트 함수를 선언
+            function playPause() {
+                // video 태그의 미디어가 현재 재생중인지 아닌지를 확인
+                // 미디어가 재생 중일 경우 멈춤, 미디어가 일시 정지일 경우 재생
+                if (myVideo.paused) {
+                    myVideo.play();
+                }
+                else {
+                    myVideo.pause();
+                }
+            }
+
+            // 실행 시 미디어의 너비를 560px로 변경
+            function big() {
+                myVideo.width = 560;
+            }
+
+            function small() {
+                myVideo.width = 320;
+            }
+
+            function normal() {
+                myVideo.width = 420;
+            }
+        </script>
+    </body>
+</html>

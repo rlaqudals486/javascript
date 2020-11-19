@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>css 2-4</title>
+    <style>
+        html { font-family: 'Jua', sans-serif; }
+        /* text-indent : 텍스트를 지정한 크기만큼 들여쓰기 하는 속성, 속성값은 길이, %사용 */
+        /* text-align : 텍스트를 정렬하는 속성 */
+                /* - left, right, center, justify (양쪽정렬) */
+        /* text-decoration : 텍스트를 꾸며주는 속성으로 밑줄, 취소선, 윗줄 등을 추가함 */
+                /* - none, underline, overline, line-through */
+        h3 { text-align: right; }
+            span { text-decoration: line-through;}
+            strong { text-decoration: overline;}
+            .p1 {
+                text-indent: 3em;
+                text-align: justify;
+            }
+
+            .p2 {
+                text-indent: 1em;
+                text-align: center;
+            }
+
+            .a1 { text-decoration: none; }
+
+            body {
+                font-family: "Times New Roman", serif;
+                font-size: large;
+            }
+
+            h3 {
+                font : italic bold 40px consolas, sans-serif;
+            }
+        
+    </style>
+</head>
+<body>
+    <h3>텍스트 관련 속성</h3>
+    <p class="p1">HTML의 태그만으로 기존의 워드 프로세서와 같이 들여쓰기, 정렬, 공백, 간격 등과 세밀한 <span>텍스트 제어</span>를 할 수 없다.</p>
+    <p class="p2">그러나, <strong>스타일 시트</strong>는 이를 가능하게 한다. 들여쓰기. 정렬에 대해서 알아본다.</p>
+    <a class="a1" href="https://www.naver.com">밑줄이 없는 네이버 링크</a>
+
+    <br><hr><br>
+
+    <h3>font 관련 속성</h3>
+    <p style="font-weight: 900;">font-weight 900</p>
+    <p style="font-weight: 100;">font-weight 100;</p>
+    <p style="font-style: italic;">Italic Style</p>
+    <p style="font-style: oblique;">Oblique Style</p>
+    <p>현재 크기의 <span style="font-size: 1.5em;">1.5배</span>크기로</p>
+    
+</body>
+</html>

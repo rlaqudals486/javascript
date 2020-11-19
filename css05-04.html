@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>css 5-4</title>
+    <style>
+        #div1 > .ani1 {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            animation-name: test1;
+            animation-duration: 4s;
+        }
+
+        @keyframes test1 {
+            from { background-color: red; }
+            to { background-color: yellow; }
+        }
+
+        /* 
+        animation 속성
+        @ketframes : 애니메이션 사용 시 동작될 CSS 속성을 지정하는 함수
+            - from, to 속성을 사용하거나, 0 ~ 100까지의 %로 동작할 애니메이션을 지정할 수 있음
+
+        animation-duration : 애니메이션 사용 시 애니메이션이 완료되는데 소요되는 시간을 설정
+
+        animation-delay : 애니메이션 사용 시 애니메이션 시작 지연 시간을 설정
+            - 음수 사용 시 지정한 시간만큼 애니메이션이 진행된 형태로 동작됨
+
+        animation-iteeration-count : 애니메이션 사용 시 반복 실행될 횟수 설정
+            -infinite 사용 시 무한 반복
+
+        animation-direction : 애니메이션 사용시 애니메이션 재생 방향을 설정
+            - normal(기본값), reverse(역방향), alternate(왕복), alternate-reverse(역방향 왕복)
+
+        animation-timing-function : 애니메이션 사용 시 애니메이션의 동작 속도 곡선을 지정
+            - ease(기본값), linear,  ease-in, ease-out, ease-in-out, cubic-bezier(n, n, n, n)
+
+        animation-fill-mode : 애니메이션 사용 시 애니메이션 시작 상태를 적요할 것인지에 대한 설정
+         - none(기본값), forwards(마지막 키프레임값을 유지), backwards(첫번째 키프레임값을 유지 애니메이션 동작 방향에 따라 다름),
+             both(앞뒤 키프레임의 값을 모두 유지, 방향에 따라 다름)
+        */
+
+        #div2 .ani2{
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            position: relative;
+            animation-name: test2;
+            /* duration 및 delay 의 시간 입력 시 1s는 1초를 뜻하고 1000ms로 표시할 수 있음 */
+            animation-duration: 4s;
+            animation-delay: s;
+            animation-iteration-count: infinite;
+            animation-direction: alternate-reverse;
+        }
+
+        @keyframes test2 {
+            0% {
+                background-color: red;
+                left: 0px;
+                top: 0px;
+            }
+            25% {
+                background-color: yellow;
+                left: 200px;
+                top: 0px;
+            }
+            50% {
+                background-color: blue;
+                left: 200px;
+                top: 200px;
+            }
+            75% {
+                background-color: green;
+                left: 0px;
+                top: 200px;
+            }
+            100% {
+                background-color: red;
+                left: 0px;
+                top: 0px;
+            }
+        }
+
+        #div3 .box {
+            width: 100px;
+            height: 50px;
+            background-color: red;
+            font-size: bold;
+            position: relative;
+            animation-name: test3;
+            animation-duration: 5s;
+            animation-iteration-count: infinite;
+            animation-direction: alternate;
+        }
+
+        @keyframes test3 {
+            from { left: 0px; }
+            to { left: 500px; }
+        }
+
+        #div3 .linear {
+            animation-timing-function: linear;
+        }
+        #div3 .ease {
+            animation-timing-function: ease;
+        }
+        #div3 .ease-in {
+            animation-timing-function: ease-in;
+        }
+        #div3 .linear {
+            animation-timing-function: ease-out;
+        }
+        #div3 .ease-in-out {
+            animation-timing-function: ease-in-out;
+        }
+        /* cubic-bezier - 3차원 베지어 함수를 통해서 속도를 조절함 */
+
+        #div4 .ani4 {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            position: relative;
+            animation-name: test4;
+            animation-duration: 3s;
+            animation-fill-mode: none;
+            /* animation-iteration-count: infinite; */
+            animation-direction: reverse;
+            animation-delay: 1s;
+            /* animation-direction: reverse; */
+            /* forward : 마지막 프레임이 끝난 후 마지막 프레임상태 유지 */
+            /* backward : delay 적용 시 첫 프레임의 상태를 delay 시간만큼 유지 */
+        }
+        
+        @keyframes test4 {
+            from { left : 0px }
+            to {
+                left: 200px;
+                background-color: blue;
+                }
+        }
+        /* 
+        animation : 위의 다른 속성들을 한번에 입력하기 위한 속성
+        순서 name > duration > timing-function > delay > direction
+        */
+
+        #div5 .ani5 {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            position: relative;
+            animation: test5 1s linear 2s infinite alternate;
+        }
+
+        @keyframes test5 {
+            0% {background: red; left: 0px; top: 0px;}
+            25% {background: yellow; left: 200px; top: 0px;}
+            50% {background: blue; left: 200px; top: 200px;}
+            75% {background: green; left: 0px; top: 200px;}
+            100% {background: red; left: 0px; top: 0px;}
+        }
+    </style>
+</head>
+<body>
+    <!-- 키 프레임 예제 -->
+    <div id="div1">
+        <h3>animation 사용하기</h3>
+        <div class="ani1"></div>
+    </div>
+
+    <br><hr><br>
+
+    <div id="div2">
+        <h3>animation 사용하기2</h3>
+        <div class="ani2"></div>
+    </div>
+
+    <br><hr><br>
+
+    <div id="div3">
+        <h3>애니메이션 속도 곡선 사용</h3>
+        <!-- 시작부터 끝까지 동일한 속도 -->
+        <div class="box linear">linear</div>
+        <!-- 시작/끝이 느리고 중간은 빠른 속도 -->
+        <div class="box ease">ease</div>
+        <!-- 시작은 느리고 중간부터 빠른 속도 -->
+        <div class="box ease-in">ease-in</div>
+        <!-- 시작부터 중간까지는 빠르고 끝은 느린 속도 -->
+        <div class="box ease-out">ease-out</div>
+        <!-- 시작/끝이 느리고 중간은 빠른 속도, ease와는 속도가 다름 -->
+        <div class="box ease-in-out">ease-in-out</div>
+    </div>
+
+    <br><hr><br>
+
+    <div id="div4">
+        <h4>fill-mode 사용</h4>
+        <div class="ani4"></div>
+    </div>
+
+    <br><hr><br>
+
+    <div id="div5">
+        <h4>animation 한번에 쓰기</h4>
+        <div class="ani5"></div>
+
+    </div>
+</body>
+</html>

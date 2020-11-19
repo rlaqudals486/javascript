@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>css 5-1</title>
+    <style>
+        span {
+            visibility:hidden;
+        }
+        p {
+            width: 15em;
+            height: 3em;
+            border: 1px solid lightgray;
+        }
+
+        .auto { overflow: auto; }
+        .hidden { overflow: hidden; }
+        .visible { overflow: visible; }
+        .scroll { overflow: scroll; }
+
+        /* 
+        overflow-x, overflow-y 속성을 사용하여 수평, 수직 컨텐츠의 overflow 속성을 따로 설정 할 수 있음
+        속성값은 overflow와 동일함   
+        */
+    </style>
+</head>
+<body>
+    <h3>visibility 사용하기</h3>
+    <div>
+        <ul>
+            <li>I (<span id="span1">lover</span>)you.</li>
+            <li>CSS is Cascading (<span id="span2">Style</span>) Sheet.</li>
+            <li>응답하라 (<span id="span3">1988</span>).</li>
+        </ul>
+        <button id="btn1">정답 보이기</button>
+    </div>
+
+    <br><hr><br>
+
+    <h3>overflow 사용하기</h3>
+    
+    <div id="over">
+        <p class="auto">overflow에 auto 값을 적용하면 박스를 넘어가는 내용이 없을 경우 스크롤이 생성되지 않으며, 박스를 넘어가는 내용이
+            출력될 경우 스크롤이 자동 생성됨
+        </p><br>
+        <p class="hidden">overflow에 hidden 값을 적용하면 박스를 넘어가는 애용이 잘려 보이지 않습니다.</p><br>
+        <p class="visible">overflow에 visible 값을 적용하면 컨텐츠가 박스를 넘어가서도 출력됩니다.</p><br>
+        <p class="scroll">overflow에 scroll값을 적용하면 박스에 스크롤바가 출력됩니다.</p><br>
+    </div>
+
+    <script>
+        var state = false;
+        var span1 = document.getElementById("span1");
+        var span2 = document.getElementById("span2");
+        var span3 = document.getElementById("span3");
+        var btn = document.getElementById("btn1");
+        btn.addEventListener("click", function() {
+            if (state == true) {
+                state = false;
+                span1.style.visibility = "hidden";
+                span2.style.visibility = "hidden";
+                span3.style.visibility = "hidden";
+            }
+
+            else {
+                state = true;
+                span1.style.visibility = "visible"
+                span2.style.visibility = "visible"
+                span3.style.visibility = "visible"
+            }
+        });
+    </script>
+</body>
+</html>

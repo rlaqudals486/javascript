@@ -1,0 +1,10 @@
+h2 {
+    color:darkgoldenrod;
+    border: 2px dashed ;
+}
+
+h3 {
+    font-style: italic;
+    color : teal;
+    background-color: cornflowerblue;
+}

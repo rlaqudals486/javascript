@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>float을 이용하여 레이아웃만들기</title>
+    <style>
+        * { box-sizing: border-box; }
+
+        .header, .footer {
+            background-color: skyblue;
+            color: black;
+            padding: 15px;
+        }
+
+        .column {
+            float: left;
+            padding: 15px;
+        }
+
+        .main::after {
+            content: "";
+            clear: both;
+            display: table;
+        }
+
+        .sidebar {
+            width: 20%;
+        }
+
+        .content {
+            width: 60%;
+        }
+
+        .right {width: 20%;}
+
+        .sidebar ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .sidebar li {
+            padding: 8px;
+            margin-bottom: 8px;
+            background-color: #33b5e5;
+            color: #FFFFFF;
+        }
+
+        .sidebar li:hover {
+            background-color: skyblue;
+        }
+
+        .right ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .right li {
+            padding: 8px;
+            margin-bottom: 8px;
+            background-color: #33b5e5;
+            color: #FFFFFF;
+        }
+
+        .right li:hover {
+            background-color: skyblue;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 문제1) float과 이전 파일을 참고하여 헤더, 컨텐츠, 푸터가 있는 레이아웃을 만드세요 -->
+    <div class="header">
+        <h1>대충 홈페이지라는 뜻</h1>
+    </div>
+    <div class="main">
+        <div class="column sidebar">
+            <ul>
+                <li>하나</li>
+                <li>둘</li>
+                <li>셋</li>
+                <li>야!</li>
+            </ul>
+        </div>
+        <div class="column content">
+            <p>성경 또는 성서 은 기독교, 유대교에서 가장 중요한 경전을 일컫는 용어이다. 기독교는 구약성경과 예수의 죽음 이후 예수를 계속하여 따르던 이들과 바울로 등이 저술한 신약성경을 성경으로
+                부르며, 유대교에서는 히브리성경만을 성경이라고 부른다.</p>
+        </div>
+        <div class="column right">
+            <ul>
+                <li>하나</li>
+                <li>둘</li>
+                <li>셋</li>
+                <li>야!</li>
+            </ul>
+        </div>
+    </div>
+    <div class="footer">
+        <p>맨밑</p>
+    </div>
+</body>
+
+</html>

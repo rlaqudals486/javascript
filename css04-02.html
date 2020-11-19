@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="kor">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>css 4-2</title>
+    <style>
+        /* 
+        - 컴퓨터에서의 좌표는 일반 수학에서의 좌표체계와 달리 왼쪽 상단에서 오른쪽 하단으로 이동하는 형태임 
+        - html 태그의 기본 배치는 왼쪽 상단에서 시작하여 오른쪽 하단으로 배치되는 형태
+        - position 속성을 사용하여 html 태그의 위치를 변경할 수 있음
+        - position 속성값은 크게 2가지 타입으로 상대 위치 좌표, 절대 위치 좌표를 사용하는 방식으로 나누어짐
+        - 상대 위치 좌표는 static(기본값), relative
+        - 절대 위치 좌표는 absolute, fixed
+
+        - static : 기본값, 상대 위치 좌표, 다른 태그가 긑난 지점이 그 다음 태그의 시작 위치
+        - relative :  상대 위치 좌표, static과 거의 같음, html 태그 위치 설정을 위한 top, bottom, left, right 속성을 사용함
+
+        - absolute : 절대 위치 좌표, 시작 지점이 언제나 0,0 (부모 태그의 시작 지점을 기준으로 함), html 태그 위치 설정을 위한 top, bottom, left, right 속성을 사용함
+        - fixed : 절대 위치 좌표, 시작 지점이 언제나 0,0 (브라우저의 시작 지점을 기준으로 함), html 태그 위치 설정을 위한 top, bottom, left, right 속성을 사용함
+        */
+
+        .box {
+            width: 100px;
+            height: 100px;
+            border: 2px solid black;
+        }
+
+        .red {background-color: red;}
+        .green {background-color: green;}
+        .blue {background-color: blue;}
+
+        #pos-static .box { position: static; }
+
+        /* relative 사용 */
+        #pos-relative .box { position: relative; }
+        #pos-relative .green { left: 50px; top: 50px;}
+
+        #pos-fixed .box { position: fixed;}
+        #pos-fixed .red {
+            top: 50px;
+            right: 50px;
+        }
+
+        #pos-fixed .green {
+            top: 100px;
+            right: 100px;
+        }
+
+        #pos-fixed .blue {
+            top: 150px;
+            right: 150px;
+        }
+
+        /* absolute 사용 */
+        /* absolute 사용 시 반드시 부모 태그의 position 값은 relative 이어야 함 (공식) */
+        #pos-absolute { position: relative; }
+        #pos-absolute .box { position: absolute; }
+        #pos-absolute .red {
+            top: 30px;
+            left: 30px;    
+        }
+
+        #pos-absolute .green {
+            top: 70px;
+            left: 70px;
+        }
+
+        #pos-absolute .blue {
+            top: 50px;
+            left: 50px;
+        }
+
+        div.rel {
+            position: relative;
+            width: 400px;
+            height: 200px;
+            border: 3px solid yellowgreen;
+        }
+
+        div.absol {
+            position: absolute;
+            width: 200px;
+            height: 100px;
+            border: 3px solid dodgerblue;
+            top: 80px;
+            right: 0;
+        }
+
+        /* z-index 숫자가 클수록 우선순위 */
+        #zindex { position: relative; }
+        #zindex div {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            border: 1px solid black;
+        }
+
+        #zindex .green {
+            top: 50px;
+            left: 50px;
+            z-index: 9999;
+        }
+
+        #zindex .blue {
+            top: 80px;
+            left: 80px;
+            z-index: 20;
+        }
+
+    </style>
+</head>
+<body>
+    <h3>position 속성 사용</h3>
+    <div>
+        <h4>static 사용</h4>
+
+        <div id="pos-static">
+            <div class="box red"></div>
+            <div class="box green"></div>
+            <div class="box blue"></div>
+        </div>
+
+        <hr>
+
+        <h4>relative 사용</h4>
+
+        <div id="pos-relative">
+            <div class="box red"></div>
+            <div class="box green"></div>
+            <div class="box blue"></div>
+        </div>
+
+        <hr>
+
+        <h4>fixed 사용</h4>
+
+        <div id="pos-fixed">
+            <div class="box red"></div>
+            <div class="box green"></div>
+            <div class="box blue"></div>
+        </div>
+
+        <hr>
+
+        <h4>absolute 사용</h4>
+
+        <div id="pos-absolute">
+            <div class="box red"></div>
+            <div class="box green"></div>
+            <div class="box blue"></div>
+        </div>
+        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+        <br><hr><br>
+
+        <div id="pos-absol">
+            <h4>부모 태그 position:relative</h4>
+            <div class="rel">
+                <div class="absol">
+                    <p>부모 태그 position:relative</p>
+                </div>
+            </div>
+        </div>
+
+        <br><hr><br>
+
+        <h3>z-index 사용하기</h3>
+        <div id="zindex">
+            <div class="box red"></div>
+            <div class="box green"></div>
+            <div class="box blue"></div>
+        </div>
+    </div>
+</body>
+</html>

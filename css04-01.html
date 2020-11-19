@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>css 4-1</title>
+    <style>
+        #dp-block .box {
+            width: 300px;
+            height: 200px;
+            border: 1px solid black;
+        }
+
+        #dp-block span {
+            width: 100px;
+            height: 60px;
+            border: 1px solid red;
+            background-color: skyblue;
+        }
+
+        #dp-block .type1 > span { display: inline; }
+        #dp-block .type2 > span { display: block; }
+
+        #dp-inline .box {
+            width: 300px;
+            height: 200px;
+            border: 1px solid black;
+            padding: 5px;
+        }
+
+        #dp-inline div {
+            border: 2px dotted red;
+            background-color: skyblue;
+        }
+
+        #dp-inline .type1 > div { display: block; }
+        #dp-inline .type2 > div { display: inline; }
+
+        .type3 p {
+            margin: 0;
+            padding: 0;
+        }
+
+        .type3 span {
+            border: 2px solid red;
+        }
+
+        /* display의 속성값이 block과 inline의 차이는 block 타입은 margin-top, margin-bottom, padding-top, padding-bottom을 사용할 수 있으나, inline 타입은 사용할 수 없음 */
+        #p1 {
+            /* margin-left: 30px; */
+            padding: 30px;
+            border: 2px dashed black;
+        }
+        
+        #span1 {
+            /* margin : 30px; */
+            padding : 30px;
+        }
+
+        /* dp-inblock */
+        #dp-inblock > .box {
+            width: 500px;
+            height: 200px;
+            border: 2px solid black;
+        }
+
+        #dp-inblock div {
+            width: 150px;
+            height: 40px;
+            border: 2px solid red;
+            background-color: skyblue;
+        }
+
+        #dp-inblock .type1 > div {
+            display : inline;
+            margin: 10px;
+            padding: 10px;
+        }
+        #dp-inblock .type2 > div {
+            display : inline-block;
+            margin: 10px;
+            padding: 10px;
+        }
+        #dp-inblock .type3 > div {
+            display : block;
+            margin: 10px;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <h3>display : block</h3>
+    <hr>
+    <div id="dp-block">
+        <h4>span 태그가 display:inline</h4>
+        <div class="box type1">
+            <span>inline span</span> 과
+            <span>inline span</span> 입니다.
+        </div>
+        <br>
+        <h4>span 태그가 display:block</h4>
+        <div class="box type2">
+            <span>block span</span> 과
+            <span>block span</span> 입니다.
+        </div>
+    </div>
+
+    <br><hr><br>
+
+    <h3>display:inline</h3>
+    <div id="dp-inline">
+        <h4>div 태그가 display:block</h4>
+        <div class="box type1" style="background-color: hotpink;">
+            <div>block DIV</div>
+            <div>block DIV</div>
+            <div>block DIV</div>
+        </div>
+        <br>
+        <h4>div 태그가 display:inline</h4>
+        <div class="box type2" style="background-color: hotpink;">
+            <div>inline DIV</div>
+            <div>inline DIV</div>
+            <div>inline DIV</div>            
+        </div>
+    </div>
+
+    <!-- 버튼 태그의 display 변경하기 -->
+    
+    <br><hr><br>
+ 
+    <div>
+        <div>
+            <button>원본 형태의 버튼</button>
+            <button style="display: block; width: 100%;">block 타입의 버튼</button>
+        </div>
+    </div>
+    
+    <br><hr><br>
+    <h3>display block과 inline의 차이</h3>
+    <div class="type3">
+        <p id="p1">display block과 inline의 차이</p>
+        <p id="p2">display <span id="span1">block</span>과 inline의 차이</p>
+        <p id="p3">display block과 inline의 차이</p>
+    </div>
+
+    <br><hr><br>
+
+    <h3>display:inline-block</h3>
+    <div id="dp-inblock">
+        <div class="box type1">
+            <h4>inline type</h4>
+            <div>inline div</div>
+            <div>inline div</div>
+            <div>inline div</div>
+        </div>
+        <div class="box type2">
+            <h4>inline block type</h4>
+            <div>inline-block div</div>
+            <div>inline-block div</div>
+            <div>inline-block div</div>
+        </div>
+        <div class="box type3">
+            <h4>block type</h4>
+            <div>block div</div>
+            <div>block div</div>
+            <div>block div</div>
+        </div>
+    </div>
+</body>
+</html>

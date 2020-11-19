@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>css 2-3</title>
+    <style>
+        /* CSS 색상 */
+        /* 
+        CSS 색상 표현 방식
+        1. 색상명으로 사용
+            - 기존에 정해진 색상 이름을 사용
+        2. hex 코드 사용
+            - 사용기호 #
+            - red, green blue 순서대로 16진수 00 ~ ff까지의 숫자를 총 6개 입력
+            - 약식으로 입력이 가능, 16진수의 숫자가 10자리와 1자리가 같을 경우 1개만 입력해도 됨
+                - #ffffff (기본), #fff (약식)
+
+        3. RGB방식 사용
+            - 사용기호 rgb()
+            - red, green, blue 순서대로 10진수 0 ~ 255까지의 숫자를 총 3개 입력
+            - 투명도를 나타내는 alpha 값을 추가하여 rgba 형태도 존재함
+            - 투명도는 0.0 ~ 1.0 까지의 숫자로 표현
+                - rgb(255, 255, 255) (기본)
+                - rgba(255, 255, 255, 1.0)
+
+        4. HSL방식 사용
+            - 사용기호 hsl()
+            - 색조, 채도, 명도 순서대로 색조는 0 ~ 360의 숫자, 채도와 명도는 0 ~ 100%의 백분률로 표현
+            - 투명도를 나타내는 alpha 값을 추가하여 hsla 형태도 존재함
+            - 투명도는 0.0 ~ 1.0까지의 숫자로 표현
+                - hsl(360, 100%, 100%) (기본)
+                - hsla(360, 100%, 100%, 1.0)
+         */
+
+         html { font-size: 25px;}
+
+        div {
+            margin-left: 30px;
+            margin-right: 30px;
+            margin-bottom: 10px;
+            color: white;
+        }
+
+        /* CSS 단위 */
+        /* CSS 속성의 길이, 크기 등을 표현하는 단위 */
+        /* 
+        절대 길이 : 길이의 단위가 고정되어 있음 - cm, mm, in, px(기본), pt, pc
+        상대 길이 : 다른 길이 단위에 상대적인 길이가 지정되어 있음 - em, rem, ex, ch, vw, vh, vmin, vmax, %
+        주로 사용하는 단위 : px, ex, rem, %, vw, vh
+
+        * html 페이지의 기본글꼴의 기본 크기는 16px
+        px : 절대 길이, 디스플레이 장치의 픽셀 (도트) 1개의 크기를 뜻함
+        % : 상대 길이, 화면의 크기를 백분율로 표시
+            - 100% = 16px
+        em : 상대 길이, 해당 폰트의 대문자 M의 너비를 기준으로 하는 단위, 부모 태그의 폰트 크기를 기준으로 하여 배율을 설정
+            - 기본 1em = 16px
+        rem : 상대 길이, 해당 폰트의 대문자 M의 너비를 기준으로 하는 단위, html 태그의 폰트 크기를 기준으로 하여 배율을 설정
+            - 기본 1rem = 16px
+        */
+        
+        #px, #per, #em, #rem, #em1, #rem1 { color:black; }
+        #px .p02 { font-size: 24px; }
+        #px .p03 { font-size: 32px; }
+
+        #per .p02 { font-size: 100%; }
+        #per .p03 { font-size: 150%; }
+        #per .p04 { font-size: 200% }
+
+        #em .p02 { font-size:  1em; }
+        #em .p03 { font-size:  1.5em; }
+        #em .p04 { font-size:  2em; }
+
+        #em1 div { color: black; }
+        #em1 .p02 { font-size: 1em; }
+        #em1 > div { font-size: 20px; }
+        #em1 .p04 { font-size: 1em; }
+        #em1 .p05 { font-size: 2em; }
+
+        #rem .p02 { font-size: 1rem;}
+        #rem .p03 { font-size: 1.5rem;}
+        #rem .p04 { font-size: 2rem;}
+
+        #rem1 div { color: black; }
+        #rem1 > div { font-size: 20px; }
+        #rem1 .p04 { font-size: 1rem; }
+        #rem1 .p05 { font-size: 2rem; }
+
+        /* 반응형 웹 디자인으로 인하여 화면 크기에 맞도록 변경되는 상대 길이 단위 */
+        /* 
+        vw : viewport 를 기준으로 하여 너비값의 100분의 1 단위
+            - 디바이스의 너비가 1000px일 경우 vw는 10px이 됨
+            - vw는 viewport 너비의 1% 길이와 동일
+        vh : viewport 를 기준으로 하여 높이값의 100분의 1 단위
+            - 디바이스의 높이가 2000px일 경우 vh는 20px이 됨
+            - vh는 viewport 높이의 1% 길이와 동일
+        vmin : viewport를 기준으로 하는 vw, vh 사용 시 최저값을 설정하는 단위
+        vmax : viewport를 기준으로 하는 vw, vh 사용 시 최대값을 설정하는 단위
+            - 브라우저의 크기가 700px x 1100px일 경우 vmin = 7px, vmax = 11px 이 되고, 800px x 1080px이 되면 vmin = 8px, vmax = 10.8px
+        */
+
+    </style>
+</head>
+<body>
+    <h3>css 색 활용</h3>
+    <hr>
+    <!-- hsl, rgb 방식으로 적용 -->
+    <div style="background-color: hsl(195, 100%, 50%);">deepskyblue(#00bfff)</div>
+    <div style="background-color: hsl(0, 59.4%, 40.6%);">brown(#a52a2a)</div>
+    <div style="background-color: hsl(300, 100%, 50%);">fuchisa(#ff00ff)</div>
+    <div style="background-color: rgb(255, 140, 0);">darkorange(#ff8c00)</div>
+    <div style="background-color: rgb(0, 139, 139);">darkcyan(#008b8b)</div>
+    <div style="background-color: rgb(107, 142, 35);">olivedrab(#6b8e23)</div>
+    <div style="background-color: hsla(180, 100%, 27.3%, 0.7);">darkcyan(#008b8b)</div>
+    <div style="background-color: rgba(107, 142, 35, 0.7);">olivedrab(#6b8e23)</div>
+
+    <br><hr><br>
+    <h3>html에서 주로 사용하는 단위</h3>
+    <div id="px">
+        <h4>px 단위</h4>
+        <p id="p01">기본 크기</p>
+        <p id="p02">폰트 24px</p>
+        <p id="p03">폰트 32px</p>
+    </div>
+
+    <br><hr><br>
+
+    <div id="per">
+        <h4>% 단위</h4>
+        <p class="p01">기본 크기</p>
+        <p class="p02">폰트 100%</p>
+        <p class="p03">폰트 150%</p>
+        <p class="p04">폰트 200%</p>
+    </div>
+
+    <br><hr><br>
+
+    <div id="em">
+        <h4>em 단위</h4>
+        <p class="p01">기본 크기</p>
+        <p class="p02">폰트 1em</p>
+        <p class="p03">폰트 1.5em</p>
+        <p class="p04">폰트 2em</p>
+    </div>
+
+    <div id="em1">
+        <p class="p01">기본 폰트 크기</p>
+        <p class="p02">기본 폰트 1em</p>
+        <div>
+            <p class="p03">부모 태그 폰트 크기 변경 후 기본 폰트 크기</p>
+            <p class="p04">부모 태그 폰트 크기 변경 후 1em</p>
+            <p class="p05">부모 태그 폰트 크기 변경 후 2em</p>
+        </div>
+    </div>
+
+    <hr>
+    <h4>rem 단위</h4>
+    <div id="rem">
+        <h4>rem 단위</h4>
+        <p class="p01">기본 크기</p>
+        <p class="p02">폰트 1rem</p>
+        <p class="p03">폰트 1.5rem</p>
+        <p class="p04">폰트 2rem</p>
+    </div>
+    
+    <hr>
+    
+    <div id="rem1">
+        <p class="p01">기본 폰트 크기</p>
+        <p class="p02">기본 폰트 1rem</p>
+        <div>
+            <p class="p03">부모 태그 폰트 크기 변경 후 기본 폰트 크기</p>
+            <p class="p04">부모 태그 폰트 크기 변경 후 1rem</p>
+            <p class="p05">부모 태그 폰트 크기 변경 후 2rem</p>
+        </div>
+    </div>
+
+</body>
+</html>

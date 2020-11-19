@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>css 5-2</title>
+    <style>
+        div  > ul {
+            background-color: goldenrod;
+            padding: 10px 10px 10px 50px;
+            list-style-position: outside;
+        }
+
+        div > ul li {
+            background-color: greenyellow;
+            margin-bottom: 5px;
+        }
+
+        #menubar { background-color: olive; }
+
+        #menubar ul {
+            margin: 0;
+            padding: 0;
+            width: 567px;
+        }
+
+        #menubar ul li {
+            display: inline;
+            list-style-type: none;
+            padding: 0px 15px;
+        }
+
+        #menubar ul li a {
+            color: white;
+            text-decoration: none;
+        }
+
+        #menubar ul li a:hover { color: violet; }
+    </style>
+</head>
+<body>
+    <h3>list-style 변경하기</h3>
+    <div>
+        <ul>
+            <li>에스프레소</li>
+            <li>카푸치노</li>
+            <li>카페라떼</li>
+        </ul>
+    </div>
+
+    <br><hr><br>
+
+    <!-- 시멘틱 태그로써 div 태그와 동일한 기능을 가지고 있으나 네비게이션바 및 메뉴를 생설할때 사용하는 태그 -->
+    <nav id="menubar">
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Espersso</a></li>
+            <li><a href="#">Cappuccino</a></li>
+            <li><a href="#">Cafe Latte</a></li>
+            <li><a href="#">F.A.Q</a></li>
+        </ul>
+    </nav>
+</body>
+</html>

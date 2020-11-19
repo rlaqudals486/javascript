@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>css 4-4</title>
+    <style>
+        * { box-sizing: border-box; }
+
+        .box {
+            float: left;
+            width: 33.3%;
+            padding: 50px;
+        }
+
+        /* 
+        ::after 을 사용하여 float 속성을 초기화하는 방법의 조건
+        1. float 속성을 사용하는 html 태그를 감싸는 부모 태그가 반드시 필요함
+        2. 해당 부모 태그에게 ::after 선택지를 사용하여 float 속성을 해제
+        3. content:"", clear:both;, display:table;을 반드시 사용        
+        */
+        .clearfix::after {
+            content: "";
+            clear: both;
+            display: table;
+        }
+
+        .img-container {
+            float: left;
+            width: 33.33%;
+            padding: 5px;
+        }
+
+        .img-container > img { width: 100%; }
+
+        .clearfix2::after {
+            content: "";
+            clear: both;
+            display: table;
+        }
+
+        .ok2 {
+            -moz-transform: scaleX(-1);
+            -o-transform: scaleX(-1);
+            -webkit-transform: scaleX(-1);
+            transform: scaleX(-1);
+        }
+
+        #menu > ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: #333333;
+        }
+
+        li { float:left; }
+
+        li a {
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            padding: 16px;
+            display: inline-block;
+        }
+
+        li > a:hover {background-color : #999999;}
+    </style>
+</head>
+<body>
+    <h3>float 을 사용한 화면 분할</h3>
+
+    <div class="clearfix">
+        <div class="box left" style="background: #bbb;"><p>왼쪽 사이드바</p></div>
+        <div class="box center" style="background: #ccc;"><p>중앙 컨텐츠</p></div>
+        <div class="box right" style="background: #ddd;"><p>오른쪽 사이드바</p></div>
+    </div>
+
+    <br><hr><br>
+
+    <h3>float을 사용하여 만든 이미지 뷰어</h3>
+
+    <div class="clearfix2">
+        <div class="img-container">
+            <img class="ok2" src="./끄덕.gif" alt="">
+        </div>
+        <div class="img-container">
+            <img src="./zammanbo.png" alt="">
+        </div>
+        <div class="img-container">
+            <img src="./끄덕.gif" alt="" style="filter:fliph()">
+        </div>
+
+       <br><hr><br><hr><br>
+
+       <h3>float을 사용하여 네비게이션바 만들기</h3>
+        <div id="menu">
+            <ul>
+                <li><a href="#" class="active">Home</a></li>
+                <li><a href="#news">News</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="#about">About</a></li>
+            </ul>
+
+        </div>
+    </div>
+</body>
+</html>

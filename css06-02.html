@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>css 6-2</title>
+    <style>
+        /* 
+        3D transform은 기존의 2D transform에 함수가 Z 축이 추가됨, 이름에 3D가 붙어 있음
+        martix3d()
+        translate3d(x, y, z)
+        translateX(), translateY, translateZ
+        sclae3d(x, y, z)
+        sclaeX(), sclaeY(), sclaeZ()
+        rotate3d(x, y, z, angle)
+        rotateX(), rotateY(), rotateZ()
+        */
+
+        .box {
+            width: 300px;
+            height: 100px;
+            background-color: yellow;
+            border: 1px solid black;
+        }
+
+        #div1 .rotate2d:hover {
+            -webkit-transform: rotate(45deg);
+            transform: rotate(45deg);
+        }
+
+        #div1 .rotatex:hover {
+            -webkit-transform: rotateX(45deg);
+            transform: rotateX(45deg);
+        }
+
+        #div1 .rotatey:hover {
+            -webkit-transform: rotateY(45deg);
+            transform: rotateY(45deg);
+        }
+
+        #div1 .rotatez:hover {
+            -webkit-transform: rotateZ(45deg);
+            transform: rotateZ(45deg);
+        }
+
+        #div1 .rotate3d:hover {
+            -webkit-transform: rotate3d(1, 1, 1, 45deg);
+            transform: rotate3d(1, 1, 1, 45deg);
+        }
+    </style>
+</head>
+<body>
+    <h3>3D trnasform</h3>
+
+    <div id="div1">
+        <h4>rotate3d</h4>
+        <div class="box rotate2d">2d rotate</div>
+        <hr>
+        <div class="box rotatex">rotateX</div>
+        <hr>
+        <div class="box rotatey">rotateY</div>
+        <hr>
+        <div class="box rotatez">rotateZ</div>
+        <hr>
+        <div class="box rotate3d">rotate3D</div>
+    </div>
+</body>
+</html>
